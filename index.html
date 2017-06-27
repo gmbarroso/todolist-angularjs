@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo List</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body ng-app="todolist">
+
+  <section ng-controller="taskControl">
+      <p><input type="text" placeholder="Cadastrar tarefa" ng-model="inserir.naLista"></p>
+      <button ng-click="saveTask()">Inserir tarefa</button>
+      <br>
+      <br>
+      <button ng-click="limparTask()">Limpar tarefas feitas</button>
+
+    <div class="tasklist">
+      <p ng-if="listaTarefas.length == 0">
+        Não há tarefas cadastradas!
+      </p>
+
+      <div ng-repeat="item in listaTarefas">
+        <!-- ng-repeat é tipo o for do js -->
+        <!-- <p ng-class="{'task': item.feito == true}" ou -->
+        <p ng-class="{'task': item.feito}"
+        ng-click="taskFeita(item)">{{item.nome}}</p>
+
+      </div>
+
+    </section>
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+  </html>
